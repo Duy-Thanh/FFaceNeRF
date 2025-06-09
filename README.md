@@ -23,13 +23,12 @@ Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0
 ## Training requires about 40 minutes on single A6000 GPU
     python train_ffacenerf.py --mode eyes
     #python train_ffacenerf.py --mode nose
-    #python train_ffacenerf.py --mode base
+    #python train_ffacenerf.py --mode chin
 
 
 ## Testing
-    python editing_testset.py --mode eyes --network ckpt_eyes_10
-    #python editing_testset.py --mode eyes --network ckpt_nose_10
-    #python editing_testset.py --mode eyes --network ckpt_base_10
+    python editing_testset.py --mode eyes --network ckpt_eyes_10.pth --overlap_weight 0.5
+    #python editing_testset.py --mode eyes --network ckpt_nose_10.pth --overlap_weight 0.4 --target_image 64
 
 
 
