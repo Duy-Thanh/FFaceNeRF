@@ -32,7 +32,8 @@ Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0
     #python editing_testset.py --mode eyes --network ckpt_base_10
 
 
-### In the original CVPR paper, the test set comprised 22 samples; in this public repository, we expanded it to 41 for the testing.
+
+In the original CVPR paper, the test set comprised 22 samples; in this public repository, we expanded it to 41 for the testing.
 
     python evaluate.py
 
