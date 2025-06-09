@@ -16,7 +16,9 @@
 
 FFaceNeRF requires NeRRFaceEditing checkpoints for intialization
 
+put [pretrained_model](https://drive.google.com/file/d/1N4y3leKEF7rbMVNbpYUYtNnaO4WVDln1/view?usp=drive_link) into networks/NeRFFaceEditing-ffhq-64.pkl
 
+Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0O/view?usp=drive_link) for training and testing
 
 python train_ffacenerf.py --mode eyes
 
