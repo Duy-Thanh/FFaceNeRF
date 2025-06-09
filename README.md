@@ -20,15 +20,21 @@ put [pretrained_model](https://drive.google.com/file/d/1N4y3leKEF7rbMVNbpYUYtNna
 
 Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0O/view?usp=drive_link) for training and testing
 
-python train_ffacenerf.py --mode eyes
+## Training requires about 40 minutes on single A6000 GPU
+    python train_ffacenerf.py --mode eyes
+    #python train_ffacenerf.py --mode nose
+    #python train_ffacenerf.py --mode base
 
 
+## Testing
+    python editing_testset.py --mode eyes --network ckpt_eyes_10
+    #python editing_testset.py --mode eyes --network ckpt_nose_10
+    #python editing_testset.py --mode eyes --network ckpt_base_10
 
-python editing_testset.py --mode eyes --network ckpt_eyes_10
 
 ### In the original CVPR paper, the test set comprised 22 samples; in this public repository, we expanded it to 41 for the testing.
 
-python evaluate.py
+    python evaluate.py
 
 #### We would like to thank EG3D and NeRFFaceEditing for open-source video interpolation model
 
