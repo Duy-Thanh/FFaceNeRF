@@ -5,6 +5,9 @@
 
 ![teaser](https://github.com/user-attachments/assets/b51980f8-29ae-46ec-a572-6700ae0462ae)
 
+### Be aware current version still need some correction and clean-ups. If there are any suggestion for environment setting, let us know for future users
+
+
 
 ## :gear: Install Environment via Anaconda3 (version 2024.10) - (Required)
     conda env create -f environment.yml
@@ -25,15 +28,17 @@ You can find them in here:
 - Microsoft Visual Studio 2019 Build Tools (only C++ Workloads required): [https://aka.ms/vs/16/release/vs_buildtools.exe](https://aka.ms/vs/16/release/vs_buildtools.exe)
 - Anaconda3: [https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe)
 
-put [pretrained_model](https://drive.google.com/file/d/1N4y3leKEF7rbMVNbpYUYtNnaO4WVDln1/view?usp=drive_link) into networks/NeRFFaceEditing-ffhq-64.pkl
+## Gathering Files
 
-Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0O/view?usp=drive_link) for training and testing
+- put [pretrained_model](https://drive.google.com/file/d/1N4y3leKEF7rbMVNbpYUYtNnaO4WVDln1/view?usp=drive_link) into networks/NeRFFaceEditing-ffhq-64.pkl
 
-Download [this](https://github.com/Duy-Thanh/FFaceNeRF/releases/download/release/networks.7z) in **root directory of the (for example: D:\FFaceNeRF)** and **select extract here**
+- Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0O/view?usp=drive_link) for training and testing
 
-Download [this](https://github.com/Duy-Thanh/FFaceNeRF/releases/download/release/vgg16-397923af.7z) to `%USERPROFILE%\.cache\torch\hub\checkpoints` **(Create if not exists)** then **select extract here**
+- Download [this](https://github.com/Duy-Thanh/FFaceNeRF/releases/download/release/networks.7z) in **root directory of the project where you have cloned before (for example: D:\FFaceNeRF)** and **select extract here**
 
-Download [this](https://github.com/Duy-Thanh/FFaceNeRF/blob/main/freeimage.zip) to `<PATH_WHERE_YOUR_ANNACONDA3_INSTALLED>\envs\ffacenerf\Lib\site-packages\imageio\resources` then **select extract here**
+- Download [this](https://github.com/Duy-Thanh/FFaceNeRF/releases/download/release/vgg16-397923af.7z) to `%USERPROFILE%\.cache\torch\hub\checkpoints` **(Create if not exists)** then **select extract here**
+
+- Download [this](https://github.com/Duy-Thanh/FFaceNeRF/blob/main/freeimage.zip) to `<PATH_WHERE_YOUR_ANNACONDA3_INSTALLED>\envs\ffacenerf\Lib\site-packages\imageio\resources` then **select extract here**
 
 ## Training requires about 40 minutes on single A6000 GPU (you can do it now on RTX 3060 with only 8GB VRAM)
     python train_ffacenerf.py --mode eyes
