@@ -30,6 +30,8 @@ You can find them in here:
 
 ## Gathering Files
 
+Run these step **ONLY AFTER** you completed **:gear: Install Environment via Anaconda3 (version 2024.10) - (Required)**
+
 - put [pretrained_model](https://drive.google.com/file/d/1N4y3leKEF7rbMVNbpYUYtNnaO4WVDln1/view?usp=drive_link) into networks/NeRFFaceEditing-ffhq-64.pkl
 
 - Download [Data](https://drive.google.com/file/d/16ha-UeU2uLZu7YNYPXw-I1yIHyav2E0O/view?usp=drive_link) for training and testing
