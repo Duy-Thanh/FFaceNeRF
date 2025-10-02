@@ -316,7 +316,8 @@ if __name__ == "__main__":
         denorm_planes = planes
         
     
-        G_decoder = torch.load(f"./networks/{args.network}").to(device).eval().requires_grad_(False)        
+        G_decoder = torch.load(f"./networks/{args.network}").to(device).eval().requires_grad_(False)
+        # G_decoder = G        
         
         out = decode(G, ws, camera_params, norm_planes, denorm_planes, noise_mode='const')
     
@@ -348,10 +349,9 @@ if __name__ == "__main__":
         render_tensor(out['image'].clamp(-1,1)).save(f"./results/{i:05d}/img{i:05d}_edit_{args.mode}_source.png") 
         for step in tqdm(range(100)):
             optimizer.zero_grad(set_to_none=True)
-    
+
             w_opt = ws + delta_w
-    
-    
+
             planes = encode(G, w_opt, noise_mode='const')
             norm_planes, _, _ = normalize_plane(planes)
             denorm_planes = denormalize_plane(norm_planes, mean, var)
@@ -368,8 +368,13 @@ if __name__ == "__main__":
                             torch.nn.MSELoss()((1 - modified_mask) * original_image, (1 - modified_mask) * pred_image)
     
             loss = pixel_correct + loss_consist + seg_overlap
-    
-            loss.backward(retain_graph=True)
+
+            loss.backward(retain_graph=False)
             optimizer.step()
+            
+            # Clear GPU memory cache periodically
+            if step % 10 == 0:
+                torch.cuda.empty_cache()
+                
         render_tensor(out['image'].clamp(-1,1)).save(f"./results/{i:05d}/img{i:05d}_edit_{args.mode}.png") 
     

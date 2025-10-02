@@ -1,3 +1,4 @@
+from torch.cuda.amp import autocast, GradScaler
 import os
 import cv2
 import dnnlib
@@ -155,10 +156,10 @@ class CustomDataset(Dataset):
 
 def train(args):
     
-    if args.numdata<4:
+    if args.numdata < 4:
         batch_size =args.numdata
     else:
-        batch_size = 4
+        batch_size = 1
 
     iter_per_epoch = math.ceil(args.numdata/batch_size)
     t_epochs = math.ceil(args.iterations/iter_per_epoch)
@@ -229,6 +230,7 @@ def train(args):
                                                     epochs=t_epochs+1, anneal_strategy='cos')
 
     criterion = nn.CrossEntropyLoss()
+    scaler = GradScaler()  # FP16 scaler
 
     
     input_list, c_list, label_list, num_data = prepare_data()
