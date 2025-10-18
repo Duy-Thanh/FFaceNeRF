@@ -18,6 +18,8 @@ import imageio
 from torchvision import transforms
 from torchvision.utils import make_grid
 
+import matplotlib
+matplotlib.use('Agg')  # disable GUI/inline backend
 from matplotlib import pyplot as plt
 from camera_utils import LookAtPoseSampler, FOV_to_intrinsics
 from torch_utils import persistence
@@ -307,4 +309,5 @@ def train(args):
 
 if __name__== '__main__':
     args = get_argparse()
+
     train(args)
